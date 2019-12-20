@@ -1,0 +1,26 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  .paginator__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    margin: 2px;
+    border: solid 1px #000;
+    background: #d4d3cf;
+    width: 30px;
+    height: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .paginator__item_active {
+    background: #3da3bf;
+  }
+  .paginator__item_passive {
+    color: #adadad !important;
+    border-color: #adadad !important;
+    cursor: default !important;
+  }
+}

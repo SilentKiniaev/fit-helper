@@ -1,0 +1,465 @@
+$articleBgColor: #000;
+$fontFamilyText: helvetica;
+$defaultTextColor: #000;
+$searchFieldBg: #0d7d07;
+$greenColorTextFirst: #00a660;
+$formCheckedColor: #dba332;
+
+.layout {
+  display: flex;
+  margin: 10px;
+}
+.layout_self-start {
+  align-self: flex-start;
+}
+.layout_around_center {
+  justify-content: space-around;
+  align-items: center;
+}
+.layout_around_start {
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.layout_column_start_center {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.layout_column_center_center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout_column_around_center {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.layout_column_around_start {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.layout_column_around_end {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.layout_column_between_center {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.layout_column_end_center {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/////////////////////FORM///////////////////////
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px 0;
+  .form__item {
+    margin: 5px;
+    font-family: $fontFamilyText;
+    font-size: 0.7em;
+    display: inline-flex;
+    min-width: 280px;
+    //width: 80%;
+    color: #000;
+    .form__name {
+      position: absolute;
+      pointer-events: none;//проход сквозь элемент
+      padding: 5px;
+      color: #808080;
+      text-transform: uppercase;
+      font-size: 1.3em;
+    }
+    .form__field {
+      width: 100%;
+      height: 100%;
+      padding: 25px 5px 10px 5px;
+      display: flex;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .form__field_text {
+      outline: none;
+      //background: #e3e3e3;
+      background: #fff;
+      //border-radius: 6px 6px 0 0;
+      border-radius: 5px;
+      //border: 1px solid #000;
+      border: 2px solid #919191;
+      transition: all 0.3s ease;
+      &:focus {
+        background: #dba332;
+      }
+    }
+    .form__field_radio {
+
+    }
+    .radio {
+      margin: 20px 0 0 10px;
+      display: flex;
+      align-items: center;
+      input[type="radio"] {
+        display: none;
+      }
+      input[type="radio"]:checked + span:before {
+        opacity: 1;
+      }
+      input[type="radio"]:checked + span {
+        border-color: $formCheckedColor;
+      }
+      input[type="radio"] + span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #000;
+        border-radius: 50%;
+        position: relative;
+        &:before {
+          opacity: 0;
+          content: '';
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          background: $formCheckedColor;
+          border-radius: 50%;
+          width: 80%;
+          height: 80%;
+          transition: all .2s ease;
+        }
+      }
+      .radio__title {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+///////////////////////////////////////////////////////////////
+
+//////SEARCH FIELD///////////
+.search-field {
+  height: 40px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $searchFieldBg;
+  padding: 4px;
+  border-radius: 23px;
+  .search-field__input {
+    z-index: 1;
+    height: 100%;
+    width: calc(100% - 60px);//100% ширины минус ширина кнопки поиска
+    padding: 0 0 0 10px;
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1.1em;
+  }
+  .search-field__button {
+    font-size: 0.9em;
+    position: relative;
+    right: 5px;
+    z-index: 0;
+    background: $searchFieldBg  url(https://i.ibb.co/KjvX0hf/search-icon.png) no-repeat center center;
+    background-size: contain;
+    height: 100%;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 0 20px 20px 0;
+    outline: none;
+    .search-field__icon {
+      width: auto;
+      height: 70%;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .search-field{
+    width: 95%;
+  }
+}
+//////////////////////////////
+
+///////TITLE////////////////
+.title {
+  text-align: center;
+  font-family: candara;
+  color: $defaultTextColor;
+  margin: 16px;
+}
+
+.title_large {
+  font-size: 1.7em;
+}
+
+.title_medium {
+  font-size: 1.2em;
+}
+.title_small {
+
+}
+.title_uppercase {
+  text-transform: uppercase;
+}
+/////////////////////////////////
+
+/////////INFO/////////////////////
+.info-list {
+  word-wrap: break-word;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  font-family: $fontFamilyText;
+  color: $defaultTextColor;
+  list-style: none;
+  .info-list__item {
+    margin: 4px;
+  }
+}
+
+.info-text {
+  //max-width: 400px;
+  width: auto;
+  font-size: 1.1em;
+  font-family: $fontFamilyText;
+  color: $defaultTextColor;
+  margin: 8px 0;
+}
+.info-text:before {
+  content: '\00A0';
+}
+.info-text_small {
+  font-size: 0.9em;
+}
+
+.img {
+  //background-size: cover;
+  margin: 3px;
+  padding: 16px;
+  //background-color: $articleBgColor;
+}
+.img_large_v {
+  width: auto;
+  height: auto;
+  max-width: 320px;
+  max-height: 320px;
+}
+.img_medium_v {
+  width: auto;
+  height: auto;
+  max-width: 160px;
+  max-height: 160px;
+}
+////////////////////////////////////////////////////
+
+///////CONTAINER///////////////////////////////
+.articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  .articles-list__article {
+    margin: 25px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: #fff;
+    .article__title {
+      width: 100%;
+      height: 15%;
+      background: $greenColorTextFirst;
+      margin: 0;
+      padding: 10px 0;
+    }
+    .article__img {
+      height: 85%;
+      width: 100%;
+    }
+    .article__opacity {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transition: all .5s ease;
+    }
+    .article__more {
+      width: 300px;
+      height: 300px;
+      z-index: 0;
+      opacity: 0;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transition: all .5s ease;
+      .article__more-title {
+        width: 50%;
+        text-align: center;
+        color: #000;
+        font-family: $fontFamilyText;
+        //border: solid .5px #000;
+        //border-radius: 5px;
+        background: #fff;
+        padding: 8px;
+        font-size: 1.2em;
+      }
+    }
+    &:hover {
+      .article__opacity{
+        opacity: 0.3;
+      }
+      .article__more {
+        z-index: 2;
+        opacity: 1;
+        background: rgba(81, 82, 81, 0.7);
+      }
+    }
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+.articles-list_flex-column {
+  flex-direction: column;
+  align-items: center;
+}
+
+
+//////////////////////////////////////////////
+
+/////////BUTTON////////////////////////////////
+.button {
+  margin: 10px;
+  text-transform: uppercase;
+  color: $defaultTextColor;
+  font-family: $fontFamilyText;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: .9px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: rgba(0,0,0,0);
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    cursor: grabbing;
+  }
+}
+.button_first {
+  width: 180px;
+  height: 40px;
+  border: solid 3px;
+  background: $formCheckedColor;
+  &:hover {
+    background: #f2b53a;
+  }
+}
+
+@mixin trans-button {
+  width: 50px;
+  height: 50px;
+  background: url(https://i.ibb.co/5vYZGDr/arrow-icon.png);
+  background-size: contain;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  @include trans-button;
+}
+.top-button {
+  position: fixed;
+  transform: rotate(90deg);
+  @include trans-button;
+  z-index: 4;
+  left: 95vw;
+  top: 92vh;
+  border: solid .5px rgba(0,0,0,0.4);
+  border-radius: 50%;
+}
+
+///////////////////////////////////////////
+
+.border {
+  border: solid 1.5px #000;
+  //border-radius: 13px;
+}
+hr {
+  border: 0;
+  border-bottom: 2px solid grey;
+  margin: auto;
+  width: 75%;
+}
+
+.hidden {
+   display: none;
+}
+.active {
+  opacity: 1;
+  z-index: 3;
+}
+.link {
+  color: $defaultTextColor;
+  text-decoration: none;
+  &:hover {
+    color: #ded70d;
+  }
+}
+.background {
+
+}
+.background_white {
+  background: #fff;
+}
+.content-box {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,.5);
+  padding: 25px 15px;
+  margin: 15px 0;
+  max-width: 800px;
+  width: auto;
+  position: relative;
+  box-sizing: border-box;
+}
+.color {
+
+}
+.color_black {
+  color: #000 !important;
+}
+.color_white {
+  color: #fff !important;
+}
+.color_red {
+  color: #e01f1f;
+}
+.color_orange {
+  color: $formCheckedColor;
+}

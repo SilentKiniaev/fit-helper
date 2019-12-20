@@ -1,0 +1,3 @@
+export const SEARCH_QUERY = "SEARCH_QUERY";
+export const LOAD_ALL_PRODUCTS = "LOAD_ALL_PRODUCTS";
+export const SET_CURRENT_TAB = "SET_CURRENT_TAB";
